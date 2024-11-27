@@ -1,4 +1,4 @@
-# <img src="https://github.com/francisuadm/chrome/blob/f3e61e99ae6d9713f397d5587b67fdaf748abf31/assets/ChromeFolder.png" width="86" height="86" orientation="180" > **Chrome Browser**
+# <img src="https://github.com/ulyweb/chrome/blob/b73cc833d1c97d393c41bffd769ea953241f5874/assets/ChromeFolder.png" width="86" height="86" orientation="180" > **Chrome Browser**
 <!--
 ## ***_<sub>How to force sync-up update</sup>_***
  TO DO: add more details about me later -->
@@ -9,7 +9,7 @@
 > :pushpin: **Execute the command as an admin in Windows PowerShell, by following the steps below:**
 
 > [!TIP]
-> :desktop_computer: Press   ****<img src="https://github.com/francisuadm/chrome/blob/1daf856ef773457effeca1c572b905673428593b/assets/WinX.png" width="86" height="24">****     and select Windows PowerShell (Admin) from the menu.
+> :desktop_computer: Press   ****<img src="https://github.com/ulyweb/chrome/blob/b73cc833d1c97d393c41bffd769ea953241f5874/assets/WinX.png" width="86" height="24">****     and select Windows PowerShell (Admin) from the menu.
 > 
 > > > :scissors: ***press the copy button below and, :pencil: paste the command into the ***`PowerShell`*** window and press enter:***
 > 
