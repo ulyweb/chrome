@@ -42,3 +42,11 @@ powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -Executi
 ```
 powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-OutlookSignatures.ps1 | iex\"' -Verb RunAs"
 ```
+
+
+> > > ##### How convert Youtube video to full URL
+> > > ##### NOTE: requirement are yt-dlp needs to be install
+> > > ##### use winget search yt-dlp
+```
+yt-dlp -f b Youtube URL here --get-url
+```
