@@ -115,3 +115,28 @@ sudo /usr/libexec/PlistBuddy -c "Add :SyncDisabled bool false" /Library/Managed\
 ````
 defaults read /Library/Managed\ Preferences/com.google.Chrome.plist
 ````
+
+
+
+````
+#!/bin/bash
+
+# Path to Chrome's managed preferences plist file
+PLIST_PATH="/Library/Managed Preferences/com.google.Chrome.plist"
+
+# Check if the plist file exists
+if [ ! -f "$PLIST_PATH" ]; then
+    echo "Plist file not found at $PLIST_PATH. Ensure the file exists before running this script."
+    exit 1
+fi
+
+# Use PlistBuddy to update existing keys with new values
+sudo /usr/libexec/PlistBuddy -c "Set :DownloadRestrictions 0" "$PLIST_PATH"
+sudo /usr/libexec/PlistBuddy -c "Set :AutofillAddressEnabled true" "$PLIST_PATH"
+sudo /usr/libexec/PlistBuddy -c "Set :AutofillCreditCardEnabled true" "$PLIST_PATH"
+sudo /usr/libexec/PlistBuddy -c "Set :ImportAutofillFormData true" "$PLIST_PATH"
+sudo /usr/libexec/PlistBuddy -c "Set :SyncDisabled false" "$PLIST_PATH"
+
+# Confirm changes
+echo "Chrome policies have been updated in $PLIST_PATH. Restart Chrome to apply the changes."
+````
