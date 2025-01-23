@@ -1,4 +1,3 @@
-Thanks for the update! Let me refine the approach for you—macOS can be tricky when it comes to managing Chrome policies because Chrome expects the policy `.plist` files to be in very specific locations and structured in a specific way.
 
 Here’s the corrected approach to make Chrome policies work on your MacBook Pro:
 
