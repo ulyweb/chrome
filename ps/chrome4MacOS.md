@@ -23,13 +23,17 @@ The file should be located at `/Library/Preferences/com.google.Chrome.plist`. If
 #### Step 2: Use `defaults` Command to Apply Policies
 On macOS, you can use the `defaults` command to update the plist. Below is the equivalent of your PowerShell script for macOS:
 
-```bash
-# Enable downloads and autofill settings for Chrome on macOS
+````
+# Enable downloads, autofill, and Chrome Sync settings for Chrome on macOS
 sudo defaults write /Library/Preferences/com.google.Chrome DownloadRestrictions -int 0
 sudo defaults write /Library/Preferences/com.google.Chrome AutofillAddressEnabled -bool true
 sudo defaults write /Library/Preferences/com.google.Chrome AutofillCreditCardEnabled -bool true
 sudo defaults write /Library/Preferences/com.google.Chrome ImportAutofillFormData -bool true
-```
+sudo defaults write /Library/Preferences/com.google.Chrome SyncDisabled -bool false
+
+# Restart Chrome to apply changes
+echo "Chrome policies have been updated. Please restart Chrome to apply the changes."
+````
 
 ---
 
