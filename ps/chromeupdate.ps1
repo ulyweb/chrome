@@ -45,6 +45,13 @@ try {
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "DownloadRestrictions" -PropertyType DWord -Value 0 -Force
     Log-Message "Chrome downloads are now unrestricted (DownloadRestrictions set to 0)."
 
+    # Enable autofill for addresses, credit cards, and form data
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "AutofillAddressEnabled" -PropertyType DWord -Value 1 -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "AutofillCreditCardEnabled" -PropertyType DWord -Value 1 -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "ImportAutofillFormData" -PropertyType DWord -Value 1 -Force
+    Log-Message "Chrome autofill for addresses, credit cards, and form data has been enabled."
+
+
     # Enable Chrome sync
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "SyncDisabled" -PropertyType DWord -Value 0 -Force
     Log-Message "Chrome sync has been enabled."
