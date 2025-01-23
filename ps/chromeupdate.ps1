@@ -13,13 +13,41 @@ if (-not (Test-Administrator)) {
     exit
 }
 
+# Log file setup
+$logFile = "C:\reports\chrome_update_log_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+if (-not (Test-Path "C:\reports")) {
+    New-Item -ItemType Directory -Path "C:\reports" | Out-Null
+}
+Add-Content -Path $logFile -Value "Starting Chrome update script at $(Get-Date)"
+
+# Function to log and write to console
+function Log-Message {
+    param (
+        [string]$message
+    )
+    Write-Host $message
+    Add-Content -Path $logFile -Value $message
+}
+
 # Update registry keys
 try {
+    Log-Message "Updating registry keys for Chrome updates and downloads..."
+
+    # Enable automatic updates
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Update" -Name "AutoUpdateCheckPeriodMinutes" -PropertyType DWord -Value 1 -Force
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Update" -Name "Install{8A69D345-D564-463C-AFF1-A69D9E530F96}" -PropertyType DWord -Value 1 -Force
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Update" -Name "Update{8A69D345-D564-463C-AFF1-A69D9E530F96}" -PropertyType DWord -Value 1 -Force
+    Log-Message "Chrome auto-update settings updated."
+
+    # Ensure downloads are unrestricted
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "DownloadRestrictions" -PropertyType DWord -Value 0 -Force
+    Log-Message "Chrome downloads are now unrestricted (DownloadRestrictions set to 0)."
+
+    # Enable Chrome sync
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "SyncDisabled" -PropertyType DWord -Value 0 -Force
-    Write-Host "Registry keys updated successfully."
+    Log-Message "Chrome sync has been enabled."
 } catch {
-    Write-Host "Failed to update registry keys: $_"
+    Log-Message "Failed to update registry keys: $_"
 }
+
+Log-Message "Script completed at $(Get-Date)"
