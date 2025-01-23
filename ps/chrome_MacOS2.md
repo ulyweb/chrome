@@ -25,7 +25,7 @@ Here’s the corrected approach to make Chrome policies work on your MacBook Pro
 #!/bin/bash
 
 # Path to Chrome's system-wide policy plist file
-PLIST_PATH="/Library/Google/Google Chrome.plist"
+PLIST_PATH="/Library/Google/Google\ Chrome.plist"
 
 # Ensure the directory exists
 if [ ! -d "/Library/Google" ]; then
