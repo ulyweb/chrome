@@ -111,3 +111,7 @@ sudo /usr/libexec/PlistBuddy -c "Add :AutofillCreditCardEnabled bool true" /Libr
 sudo /usr/libexec/PlistBuddy -c "Add :ImportAutofillFormData bool true" /Library/Managed\ Preferences/com.google.Chrome.plist
 sudo /usr/libexec/PlistBuddy -c "Add :SyncDisabled bool false" /Library/Managed\ Preferences/com.google.Chrome.plist
 ````
+
+````
+defaults read /Library/Managed\ Preferences/com.google.Chrome.plist
+````
