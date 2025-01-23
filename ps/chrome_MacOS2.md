@@ -100,3 +100,14 @@ After running the script, verify that the policies were correctly applied:
 - If you’re using **Chrome Beta or Dev**, the file location might differ.
 
 Let me know how this works for you!
+
+
+- Use the sudo command to create or edit the policy file:
+  
+````
+sudo /usr/libexec/PlistBuddy -c "Add :DownloadRestrictions integer 0" /Library/Managed\ Preferences/com.google.Chrome.plist
+sudo /usr/libexec/PlistBuddy -c "Add :AutofillAddressEnabled bool true" /Library/Managed\ Preferences/com.google.Chrome.plist
+sudo /usr/libexec/PlistBuddy -c "Add :AutofillCreditCardEnabled bool true" /Library/Managed\ Preferences/com.google.Chrome.plist
+sudo /usr/libexec/PlistBuddy -c "Add :ImportAutofillFormData bool true" /Library/Managed\ Preferences/com.google.Chrome.plist
+sudo /usr/libexec/PlistBuddy -c "Add :SyncDisabled bool false" /Library/Managed\ Preferences/com.google.Chrome.plist
+````
