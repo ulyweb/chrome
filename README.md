@@ -54,5 +54,5 @@ yt-dlp -f b Youtube URL here --get-url
 
 > > > ##### Open SCCM 
 ```
-powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-OutlookSignatures.ps1 | iex\"' -Verb RunAs"
+powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/sccm.ps1 | iex\"' -Verb RunAs"
 ```
