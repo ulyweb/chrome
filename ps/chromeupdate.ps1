@@ -55,6 +55,29 @@ try {
     # Enable Chrome sync
     New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "SyncDisabled" -PropertyType DWord -Value 0 -Force
     Log-Message "Chrome sync has been enabled."
+
+# These line are designed for Microsoft Edge Browser
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "SyncDisabled" -Value 0 -PropertyType DWord -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PasswordManagerEnabled" -Value 0 -PropertyType DWord -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PasswordMonitorAllowed" -Value 1 -PropertyType DWord -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "SyncTypesListDisabled" -PropertyType String -Value "" -Force
+# Enable "Save and fill basic info" (required to unlock ML autofill toggle)
+New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Edge" -Name "AutofillAddressEnabled" -Value 1 -PropertyType DWord -Force
+
+# Enable "Save and fill basic info" (personal data)
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "AutofillAddressEnabled" -Value 1 -PropertyType DWord -Force
+
+# Enable ML-powered suggestions (if available in your Edge version)
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "AutofillPredictionsEnabled" -Value 1 -PropertyType DWord -Force
+
+# Enable "Save and fill payment info" (credit cards)
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "AutofillCreditCardEnabled" -Value 1 -PropertyType DWord -Force
+
+# Allow credit card sync across devices (requires signed-in Microsoft account)
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PaymentMethodQueryEnabled" -Value 1 -PropertyType DWord -Force
+    Log-Message "Microsoft Edge sync has been enabled."
+
+    
 } catch {
     Log-Message "Failed to update registry keys: $_"
 }
