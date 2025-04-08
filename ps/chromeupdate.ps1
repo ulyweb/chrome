@@ -58,7 +58,7 @@ try {
 
 # These line are designed for Microsoft Edge Browser
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "SyncDisabled" -Value 0 -PropertyType DWord -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PasswordManagerEnabled" -Value 0 -PropertyType DWord -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PasswordManagerEnabled" -Value 1 -PropertyType DWord -Force
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "PasswordMonitorAllowed" -Value 1 -PropertyType DWord -Force
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "SyncTypesListDisabled" -PropertyType String -Value "" -Force
 # Enable "Save and fill basic info" (required to unlock ML autofill toggle)
