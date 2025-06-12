@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chrome Browser Tools</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    button.theme-toggle {
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    pre {
+      background: overflow-x: auto;
+    }
+    .dark-mode pre {
+      background: #222;
+    }
+    .faq h3 {
+      cursor: pointer;
+      margin: 1rem 0 0.5rem;
+    }
+    .faq-content {
+      display: none;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><img src="https://github.com/ulyweb/chrome/blob/b73cc833d1c97d393c41bffd769ea953241f5874/assets/ChromeFolder.png" width="48" height="48" style="vertical-align: middle;"> Chrome Browser Tools</h1>
+  </header>
+
+  <div class="container" data-aos="fade-up">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Theme</button>
+
+    <p><strong>TIP:</strong> Press <kbd>Windows Key + R</kbd>, then paste the following command:</p>
+    <pre>"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default"</pre>
+
+    <p><strong>NOTE:</strong> Run the following in PowerShell as Administrator:</p>
+    <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/chromeupdate.ps1 | iex\"' -Verb RunAs"</pre>
+
+    <div class="faq">
+      <h3 onclick="toggleFAQ(this)">Run Active Directory User and Computers as Admin</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/AD_as_A_Account.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Run PowerShell command as another user</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/runas_prompt.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Backup/Restore Wi-Fi connectivities</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-WifiProfiles.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Export/Import Chrome bookmarks</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-ChromeBookmarks.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Export/Import Outlook Signatures</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-OutlookSignatures.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Convert YouTube video to full URL (requires yt-dlp)</h3>
+      <div class="faq-content">
+        <pre>yt-dlp -f b Youtube URL here --get-url</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Open SCCM</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/sccm.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+    function toggleFAQ(header) {
+      const content = header.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
