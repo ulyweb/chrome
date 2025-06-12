@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chrome Browser Tools</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    header img {
+      vertical margin-right: 10px;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+    button.theme-toggle {
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background: #007acc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      overflow-x: auto;
+      border-left: 4px solid #007acc;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      user-select: text;
+    }
+    .dark-mode pre {
+      background: #222;
+      border-left-color: #66ccff;
+    }
+    .faq h3 {
+      cursor: pointer;
+      margin: 1rem 0 0.5rem;
+      color: #007acc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq h3::after {
+      content: '+';
+      font-size: 1.2rem;
+    }
+    .faq h3.active::after {
+      content: '−';
+    }
+    .faq-content {
+      display: none;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="https://raw.githubusercontent.com/ulyweb/chrome/main/assets/ChromeFolder.png" width="48" height="48" alt="Chrome Logo">
+      Chrome Browser Tools
+    </h1>
+  </header>
+
+  <div class="container" data-aos="fade-up">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Theme</button>
+
+    <div class="faq">
+      <h2>FAQ</h2>
+
+      <h3 onclick="toggleFAQ(this)">TIP: Press Windows Key + R</h3>
+      <div class="faq-content">
+        <pre>"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Run Chrome Update Script as Admin</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/chromeupdate.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Run Active Directory Tools</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/AD_as_A_Account.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Run PowerShell as Another User</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/runas_prompt.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Backup/Restore Wi-Fi Profiles</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-WifiProfiles.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Export/Import Chrome Bookmarks</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-ChromeBookmarks.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Export/Import Outlook Signatures</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/Manage-OutlookSignatures.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Convert YouTube Video to Full URL</h3>
+      <div class="faq-content">
+        <pre>yt-dlp -f b Youtube URL here --get-url</pre>
+      </div>
+
+      <h3 onclick="toggleFAQ(this)">Open SCCM</h3>
+      <div class="faq-content">
+        <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/sccm.ps1 | iex\"' -Verb RunAs"</pre>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p id="datetime">Loading time...</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+    function toggleFAQ(header) {
+      const content = header.nextElementSibling;
+      header.classList.toggle('active');
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+      } else {
+        content.style.display = 'block';
+      }
+    }
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('datetime').textContent = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
