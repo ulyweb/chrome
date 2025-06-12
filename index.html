@@ -33,7 +33,10 @@
       margin: auto;
       padding: 20px;
     }
-   : pointer;
+    button.theme-toggle {
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
       background: #007acc;
       color: white;
       border: none;
@@ -78,7 +81,7 @@
 <body>
   <header>
     <h1>
-      <img src="https://github.com/ulyweb/chrome/blob/b73cc833d1c97d393c41bffd769ea953241f5874/assets/ChromeFolder.png" width="48" height="48">
+      <img src="https://raw.githubusercontent.com/ulyweb/chrome/main/assets/ChromeFolder.png" width="48" height="48" alt="Chrome Logo">
       Chrome Browser Tools
     </h1>
   </header>
@@ -86,8 +89,6 @@
   <div class="container" data-aos="fade-up">
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Theme</button>
 
-    <!-- BEGIN: Markdown Content -->
-    <!-- You can paste your converted HTML content here or use a static site generator -->
     <p><strong>TIP:</strong> Press <kbd>Windows Key + R</kbd>, then paste the following command:</p>
     <pre>"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default"</pre>
 
@@ -95,6 +96,8 @@
     <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/chromeupdate.ps1 | iex\"' -Verb RunAs"</pre>
 
     <div class="faq">
+      <h2>FAQ</h2>
+
       <h3 onclick="toggleFAQ(this)">Run Active Directory User and Computers as Admin</h3>
       <div class="faq-content">
         <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/AD_as_A_Account.ps1 | iex\"' -Verb RunAs"</pre>
@@ -130,7 +133,6 @@
         <pre>powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://raw.githubusercontent.com/ulyweb/chrome/refs/heads/main/ps/sccm.ps1 | iex\"' -Verb RunAs"</pre>
       </div>
     </div>
-    <!-- END: Markdown Content -->
   </div>
 
   <footer>
