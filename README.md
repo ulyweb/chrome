@@ -3,6 +3,14 @@
 ## ***_<sub>How to force sync-up update</sup>_***
  TO DO: add more details about me later -->
 
+> [!TIP]
+> :desktop_computer: Press  Windows Key + R, now in the Run window
+> 
+>> :scissors: ***press the copy button below and, :pencil: paste the command into the ***`Run Window`*** window and press enter:***
+> 
+> ```
+> "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
+> ```
 
 
 > [!NOTE]
@@ -50,6 +58,9 @@ powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -Executi
 ```
 yt-dlp -f b Youtube URL here --get-url
 ```
+
+
+
 
 
 > > > ##### Open SCCM 
